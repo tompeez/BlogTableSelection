@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="de.hahn.blog.tableselect.model.BSTAppModule">
+    <AppModuleConfig name="BSTAppModuleLocal" jbo.project="de.hahn.blog.tableselect.model.BSTModel"
+                     ApplicationName="de.hahn.blog.tableselect.model.BSTAppModule" DeployPlatform="LOCAL">
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/HRConnDS"/>
+      <Security AppModuleJndiName="de.hahn.blog.tableselect.model.BSTAppModule"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="BSTAppModuleShared" jbo.project="de.hahn.blog.tableselect.model.BSTModel"
+                     ApplicationName="de.hahn.blog.tableselect.model.BSTAppModule" DeployPlatform="LOCAL">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="OracleApps" JDBCDataSource="java:comp/env/jdbc/HRConnDS"/>
+      <Security AppModuleJndiName="de.hahn.blog.tableselect.model.BSTAppModule"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

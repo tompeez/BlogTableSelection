@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="index.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                        <af:outputText value="Table Selection Test" id="ot1" inlineStyle="font-size:x-large;"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:table value="#{bindings.RegionsView1.collectionModel}" var="row"
+                                  rows="#{bindings.RegionsView1.rangeSize}"
+                                  emptyText="#{bindings.RegionsView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectionListener="#{viewScope.TableSelectBean.onTableSelect2}"
+                                  rowSelection="single" fetchSize="#{bindings.RegionsView1.rangeSize}" id="t1"
+                                  
+                                  binding="#{viewScope.TableSelectBean.regionTable}">
+                            <af:column headerText="#{bindings.RegionsView1.hints.RegionId.label}" id="c1">
+                                <af:outputText value="#{row.RegionId}"
+                                               shortDesc="#{bindings.RegionsView1.hints.RegionId.tooltip}" id="ot2">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.RegionsView1.hints.RegionId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.RegionsView1.hints.RegionName.label}" id="c2">
+                                <af:outputText value="#{row.RegionName}"
+                                               shortDesc="#{bindings.RegionsView1.hints.RegionName.tooltip}" id="ot3"/>
+                            </af:column>
+                        </af:table>
+                        <af:panelFormLayout id="pfl1" binding="#{viewScope.TableSelectBean.pform}">
+                            <af:inputText value="#{viewScope.TableSelectBean.id}"
+                                          label="ID"
+                                          readOnly="true"
+                                          columns="5"
+                                          id="it1">
+                            </af:inputText>
+                            <af:inputText value="#{viewScope.TableSelectBean.name}"
+                                          label="Name"
+                                          readOnly="true"
+                                          columns="50" id="it2">
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                    <af:button actionListener="#{viewScope.TableSelectBean.onNavigation}" text="First"
+                                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1">
+                                        <f:attribute name="adfAction" value="First"/>
+                                    </af:button>
+                                    <af:button actionListener="#{viewScope.TableSelectBean.onNavigation}" text="Previous"
+                                               disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2">
+                                        <f:attribute name="adfAction" value="Previous"/>
+                                    </af:button>
+                                    <af:button actionListener="#{viewScope.TableSelectBean.onNavigation}" text="Next"
+                                               disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3">
+                                        <f:attribute name="adfAction" value="Next"/>
+                                    </af:button>
+                                    <af:button actionListener="#{viewScope.TableSelectBean.onNavigation}" text="Last"
+                                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4">
+                                        <f:attribute name="adfAction" value="Last"/>
+                                    </af:button>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
