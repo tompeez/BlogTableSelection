@@ -5,6 +5,7 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="RegionsView1" RangeSize="25" DataControl="BSTAppModuleDataControl" id="RegionsView1Iterator"/>
+    <iterator Binds="CountriesView1" RangeSize="25" DataControl="BSTAppModuleDataControl" id="CountriesView1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="RegionsView1Iterator" id="RegionsView1">
@@ -15,9 +16,26 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="RegionsView1Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
-    <action IterBinding="RegionsView1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
-    <action IterBinding="RegionsView1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
-    <action IterBinding="RegionsView1Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <action IterBinding="RegionsView1Iterator" id="FirstRegionsView1Iterator" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="RegionsView1Iterator" id="PreviousRegionsView1Iterator" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="RegionsView1Iterator" id="NextRegionsView1Iterator" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="RegionsView1Iterator" id="LastRegionsView1Iterator" RequiresUpdateModel="true" Action="last"/>
+    <tree IterBinding="CountriesView1Iterator" id="CountriesView1">
+      <nodeDefinition DefName="de.hahn.blog.tableselect.model.CountriesView" Name="CountriesView10">
+        <AttrNames>
+          <Item Value="CountryId"/>
+          <Item Value="CountryName"/>
+          <Item Value="RegionId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CountriesView1Iterator" id="FirstCountriesView1Iterator" InstanceName="BSTAppModuleDataControl.CountriesView1"
+            DataControl="BSTAppModuleDataControl" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="CountriesView1Iterator" id="NextCountriesView1Iterator" InstanceName="BSTAppModuleDataControl.CountriesView1"
+            DataControl="BSTAppModuleDataControl" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="CountriesView1Iterator" id="PreviousCountriesView1Iterator" InstanceName="BSTAppModuleDataControl.CountriesView1"
+            DataControl="BSTAppModuleDataControl" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="CountriesView1Iterator" id="LastCountriesView1Iterator" InstanceName="BSTAppModuleDataControl.CountriesView1"
+            DataControl="BSTAppModuleDataControl" RequiresUpdateModel="true" Action="last"/>
   </bindings>
 </pageDefinition>
